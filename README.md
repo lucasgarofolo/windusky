@@ -14,9 +14,9 @@ A arquitetura do HDFS é estruturada em master-slave.
 
 O Hadoop trabalha com 5 processos: NameNode, DataNode, SecondaryNameNode, JobTracker e TaskTracker.
 
+## Apache Hadoop
 ## Instalação e configuração do Hadoop
 
-## DO 0 por que essa de cima não deu bom
 #### Instalação do OpenJDK no Ubuntu
 sudo apt update
 sudo apt install openjdk-8-jdk -y
@@ -138,13 +138,25 @@ Vá até o diretório hadoop-3.2.4/sbin
 ./start-dfs.sh
 ./start-yarn.sh
 jps !para conferir se os processos iniciaram
+
+RESULTADO nao necessariamente os mesmo números1':
+13904 NameNode
+14352 SecondaryNameNode
+14098 DataNode
+15149 Jps
+14958 NodeManager
+14607 ResourceManager
+
 #### Neste momento eu tive que copiar a chave pública 
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
-#### Dai deu erro no datanodes e eu parei o serviço e reformatei o namenodes
+#### Deu erro no datanodes e eu parei o serviço e reformatei o namenodes
 sbin/stop-dfs.sh
 sudo bin/hdfs namenode -format
 
-#### era o caminho do datanode no arquivo hdfs-site.xml que estava errado
+#### Era o caminho do datanode no arquivo hdfs-site.xml que estava errado
 
+#### Localhost do Hadoop
+http://localhost:8088/cluster
 
+### Apache NiFi
