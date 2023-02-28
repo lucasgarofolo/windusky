@@ -160,3 +160,44 @@ sudo bin/hdfs namenode -format
 http://localhost:8088/cluster
 
 ### Apache NiFi
+
+#### Download e descompactação
+wget https://dlcdn.apache.org/nifi/1.20.0/nifi-1.20.0-bin.zip
+unzip nifi-1.20.0-bin.zip
+
+#### Configuração
+mv nifi-1.20.0 /opt/
+ln -s /opt/nifi-1.20.0/ /opt/nifi
+
+#### Instalação
+cd /opt/nifi
+./bin/nifi.sh install
+nedit /opt/nifi/conf/bootstrap.conf
+
+#### Tive que criar uma variável de ambiente dentro do arquivo de inicialização do ambiente NiFi
+nedit /opt/nifi/bin/nifi.sh
+
+#### Insira a linha logo do início abaixo da linha 
+The java implementation to use
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+
+#### Inicializei o ambiente NiFi
+sudo ./bin/nifi.sh start
+
+#### outra forma de inicializar o ambiente é
+sudo /etc/init.d/nifi start
+
+#### para visualizar o ambiente NiFi acesse:
+127.0.0.1:8443/nifi
+
+#### irá pedir login e senha volte no terminal e digite:
+sudo ./bin/nifi.sh  set-single-user-credentials usuario senha
+
+#### reinicie o servidor
+sudo /etc/init.d/nifi stop
+sudo /etc/init.d/nifi start
+
+#### reacesse o ambiente e digite o login e senha
+127.0.0.1:8443/nifi
+
+#### Pronto! Ambiente configurado.
