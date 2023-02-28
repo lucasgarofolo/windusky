@@ -139,7 +139,7 @@ Vá até o diretório hadoop-3.2.4/sbin
 ./start-yarn.sh
 jps !para conferir se os processos iniciaram
 
-RESULTADO nao necessariamente os mesmo números1':
+RESULTADO nao necessariamente os mesmos números de processos:
 13904 NameNode
 14352 SecondaryNameNode
 14098 DataNode
